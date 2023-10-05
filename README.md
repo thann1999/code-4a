@@ -1,0 +1,3 @@
+## Lottery dapp
+
+## Using ethereum
