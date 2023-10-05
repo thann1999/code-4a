@@ -35,8 +35,12 @@ export default function EmptyLayout() {
 
       <Layout.Footer className="text-center bg-transparent">
         <Typography className="text-base font-semibold">
-          RetroactiveVN ©2023 Created by{' '}
-          <Typography.Link className="author --italic" href={TWITTER_AUTHOR_LINK} target="_blank">
+          RetroactiveVN ©2023 Thiết kế bởi
+          <Typography.Link
+            className="author --italic ml-1.5"
+            href={TWITTER_AUTHOR_LINK}
+            target="_blank"
+          >
             David Nguyen
           </Typography.Link>
         </Typography>
