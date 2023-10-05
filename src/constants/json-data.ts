@@ -1,3 +1,4 @@
+import followBack from '@assets/images/follow-back.png';
 import { TwitterPost } from '@root/interfaces';
 
 export const TWITTER_POST: TwitterPost[] = [
@@ -6,6 +7,8 @@ export const TWITTER_POST: TwitterPost[] = [
     title: 'Tool follow chéo trên X',
     description:
       'Hướng dẫn sử dụng tool để tăng tương tác, follow chéo trên X nhanh nhất hoàn toàn miễn phí',
-    imgUrl: 'https://flowbite.com/docs/images/blog/image-1.jpg',
+    imgCode: followBack,
+    href: 'https://twitter.com/thann199/status/1709825416607977776',
+    content: 'fake',
   },
 ];

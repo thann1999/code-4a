@@ -42,13 +42,15 @@ export default function EmptyLayout() {
         </Typography>
       </Layout.Footer>
 
-      <FloatButton
-        shape="square"
-        badge={{ dot: true }}
-        className="float-twitter-button"
-        icon={<Icon icon="ri:twitter-x-fill" fontSize={20} className="text-white" />}
-        onClick={handleRedirectTwitter}
-      />
+      <Tooltip title="Theo dõi" placement="right">
+        <FloatButton
+          shape="square"
+          badge={{ dot: true }}
+          className="float-twitter-button"
+          icon={<Icon icon="ri:twitter-x-fill" fontSize={20} className="text-white" />}
+          onClick={handleRedirectTwitter}
+        />
+      </Tooltip>
     </div>
   );
 }

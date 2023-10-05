@@ -1,8 +1,10 @@
 export interface TwitterPost {
-  imgUrl: string;
+  imgCode: string;
   id: number;
   title: string;
   description: string;
+  href: string;
+  content: string;
 }
 
 export interface TwitterCardProps {
