@@ -1,5 +1,4 @@
-import { Icon } from '@iconify/react';
-import { FloatButton, Layout, Tooltip, Typography } from 'antd';
+import { Layout, Typography } from 'antd';
 import clsx from 'clsx';
 import { Helmet } from 'react-helmet';
 import { Outlet, useMatches } from 'react-router-dom';
@@ -16,10 +15,6 @@ export default function EmptyLayout() {
   const pageTitle = (crumbs?.at(-1)?.handle as any)?.pageTitle;
   const appTheme = useThemeStore((state) => state.appTheme);
   const isDarkTheme = appTheme === ThemeMode.Dark;
-
-  const handleRedirectTwitter = () => {
-    window.open(TWITTER_AUTHOR_LINK, '_blank');
-  };
 
   return (
     <div className={clsx('min-h-screen', { 'bg-dark': isDarkTheme, 'bg-light': !isDarkTheme })}>
@@ -49,16 +44,6 @@ export default function EmptyLayout() {
           Nếu thấy nội dung hay thì cho mình 1 Follow, Like, Repost trên X nha !!!
         </Typography.Link>
       </Layout.Footer>
-
-      <Tooltip title="Theo dõi" placement="right">
-        <FloatButton
-          shape="square"
-          badge={{ dot: true }}
-          className="float-twitter-button"
-          icon={<Icon icon="ri:twitter-x-fill" fontSize={20} className="text-white" />}
-          onClick={handleRedirectTwitter}
-        />
-      </Tooltip>
     </div>
   );
 }

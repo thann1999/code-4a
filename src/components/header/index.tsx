@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
-import { MenuUnfoldOutlined, MoreOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined } from '@ant-design/icons';
 import { Icon } from '@iconify/react';
-import { Layout, Popover, Space, Typography, Grid, Button } from 'antd';
+import { Layout, Popover, Space, Typography, Grid, Button, Tooltip } from 'antd';
 import clsx from 'clsx';
 import { useMatches, useNavigate } from 'react-router-dom';
 
 import logo from '@assets/images/logo.png';
-import { HEADER_MENU } from '@root/constants';
+import { HEADER_MENU, TWITTER_AUTHOR_LINK } from '@root/constants';
 import { getTwitterPath } from '@root/utils';
 
 import SettingWeb from '../setting-web/SettingWeb';
@@ -28,6 +28,10 @@ export default function HeaderComponent() {
     if (isDisabled) return;
 
     navigate(href);
+  };
+
+  const handleRedirectTwitter = () => {
+    window.open(TWITTER_AUTHOR_LINK, '_blank');
   };
 
   // eslint-disable-next-line react/no-unstable-nested-components
@@ -66,15 +70,26 @@ export default function HeaderComponent() {
       </div>
 
       <div className="flex items-center">
-        <Popover
-          trigger="click"
-          content={<SettingWeb handleClose={() => setOpenSetting(false)} />}
-          open={openSetting}
-          placement="topRight"
-          onOpenChange={setOpenSetting}
-        >
-          <Icon icon="uil:setting" fontSize={28} className="cursor-pointer mt-0.5 ml-4" />
-        </Popover>
+        <Tooltip title="Twitter">
+          <Icon
+            icon="ri:twitter-x-fill"
+            className="cursor-pointer"
+            fontSize={26}
+            onClick={handleRedirectTwitter}
+          />
+        </Tooltip>
+
+        <Tooltip title="Cài đặt">
+          <Popover
+            trigger="click"
+            content={<SettingWeb handleClose={() => setOpenSetting(false)} />}
+            open={openSetting}
+            placement="topRight"
+            onOpenChange={setOpenSetting}
+          >
+            <Icon icon="uil:setting" fontSize={28} className="cursor-pointer ml-4" />
+          </Popover>
+        </Tooltip>
       </div>
     </Header>
   );
