@@ -33,7 +33,7 @@ export default function EmptyLayout() {
         <Outlet />
       </div>
 
-      <Layout.Footer className="text-center bg-transparent">
+      <Layout.Footer className="text-center bg-transparent p-0 h-20">
         <Typography className="text-base font-semibold">
           RetroactiveVN ©2023 Thiết kế bởi
           <Typography.Link
@@ -44,6 +44,10 @@ export default function EmptyLayout() {
             David Nguyen
           </Typography.Link>
         </Typography>
+
+        <Typography.Link href={TWITTER_AUTHOR_LINK} target="_blank" className="follow-me">
+          Nếu thấy nội dung hay thì cho mình 1 Follow, Like, Repost trên X nha !!!
+        </Typography.Link>
       </Layout.Footer>
 
       <Tooltip title="Theo dõi" placement="right">

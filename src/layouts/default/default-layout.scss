@@ -28,28 +28,26 @@
 }
 
 .page-content {
-  min-height: calc(100vh - 5rem - 72px);
+  min-height: calc(100vh - 5rem - 5rem);
+}
+
+.follow-me {
+  @apply text-lg font-bold italic;
+  @include text-high-light;
 }
 
 .author {
   @apply text-base font-semibold;
-
-  background: linear-gradient(90deg, #27b5f7, #fb3dd2, #ff8400);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 500% auto;
-  animation: gradient 5s ease-in-out infinite alternate;
+  @include text-high-light;
 
   &.--italic {
     @apply italic;
   }
 }
 
-
 .float-twitter-button {
   @apply bg-black rounded-[10px];
   .ant-float-btn-body {
-    @apply bg-black
+    @apply bg-black;
   }
 }

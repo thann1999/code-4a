@@ -17,3 +17,12 @@
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }
+
+@mixin text-high-light {
+  background: linear-gradient(90deg, #27b5f7, #fb3dd2, #ff8400);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: gradient 5s ease-in-out infinite alternate;
+}

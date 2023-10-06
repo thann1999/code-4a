@@ -10,7 +10,7 @@ export default function TwitterCard({ data }: TwitterCardProps) {
   return (
     <div
       className="bg-bg-light dark:bg-bg-dark-1 shadow-md border border-gray-200 rounded-lg max-w-md 
-   dark:border-gray-700 cursor-pointer"
+   dark:border-gray-700"
     >
       <div className="p-5 h-[500px] relative">
         <Typography className="text-xl font-bold">{data.title}</Typography>
@@ -24,7 +24,7 @@ export default function TwitterCard({ data }: TwitterCardProps) {
             }}
           />
         </div>
-        <img className="rounded-t-lg w-full mt-3" src={data.imgCode} alt={data.title} />
+        <img className="rounded-lg w-full mt-3" src={data.imgCode} alt={data.title} />
         <Button
           type="primary"
           className="flex items-center absolute left-5 bottom-5"
