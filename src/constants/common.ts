@@ -1,7 +1,7 @@
 import { HeaderMenuItem, Option } from '@root/interfaces';
 import { getTwitterPath } from '@root/utils';
 
-export const WEBSITE_NAME = 'RetroactiveVN';
+export const WEBSITE_NAME = 'Code4A';
 
 export const DEFAULT_STALE_TIME = 5 * 60 * 1000;
 export const DEFAULT_CACHE_TIME = 10 * 60 * 1000;
@@ -96,12 +96,12 @@ export const HEADER_MENU: HeaderMenuItem[] = [
     key: RouteKey.STARKNET,
     isDisabled: true,
   },
-  {
-    label: 'zkSync (Coming soon)',
-    href: '',
-    key: RouteKey.ZKSYNC,
-    isDisabled: true,
-  },
+  // {
+  //   label: 'zkSync (Coming soon)',
+  //   href: '',
+  //   key: RouteKey.ZKSYNC,
+  //   isDisabled: true,
+  // },
 ];
 
 export const TWITTER_AUTHOR_LINK = 'https://twitter.com/thann199';

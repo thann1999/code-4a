@@ -58,7 +58,7 @@ export default function HeaderComponent() {
         <img
           src={logo}
           alt="logo"
-          className={clsx('h-10 cursor-pointer', { 'mt-2': md })}
+          className={clsx('h-6 cursor-pointer')}
           onClick={() => navigate(getTwitterPath())}
         />
 
@@ -74,7 +74,7 @@ export default function HeaderComponent() {
           <Icon
             icon="ri:twitter-x-fill"
             className="cursor-pointer"
-            fontSize={26}
+            fontSize={20}
             onClick={handleRedirectTwitter}
           />
         </Tooltip>

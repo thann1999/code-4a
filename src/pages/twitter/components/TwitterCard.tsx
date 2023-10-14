@@ -14,7 +14,7 @@ export default function TwitterCard({ data }: TwitterCardProps) {
     >
       <div className="p-5 h-[500px] relative">
         <Typography className="text-xl font-bold">{data.title}</Typography>
-        <Typography>{data.description}</Typography>
+        <Typography className="mt-2">{data.description}</Typography>
         <div className="text-right">
           <Typography.Text
             className="text-xl"

@@ -37,7 +37,7 @@
 }
 
 .author {
-  @apply text-base font-semibold;
+  @apply text-lg font-semibold;
   @include text-high-light;
 
   &.--italic {

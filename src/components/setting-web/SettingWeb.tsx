@@ -71,7 +71,7 @@ export default function SettingWeb({ handleClose }: SettingWebProps) {
 
             <Icon
               className="mt-1.5"
-              icon={selectedLanguage?.icon || 'twemoji:flag-us-outlying-islands'}
+              icon={selectedLanguage?.icon || 'twemoji:flag-vietnam'}
               fontSize={20}
             />
 
