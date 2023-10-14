@@ -1,3 +1,8 @@
-## Lottery dapp
+## Code4A - Code For All
 
-## Using ethereum
+Share source code for all
+
+## Install
+
+npm install
+npm run dev
