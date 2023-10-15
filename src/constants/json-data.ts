@@ -1,22 +1,65 @@
 import { TwitterPost } from '@root/interfaces';
 
 const FOLLOW_BACK_CODE = `
+const MAX_FOLLOW_COUNT = 30;
+const DELAY = 500; // 0.5s
+let scrollCount = 1;
+let followCount = 0;
+
+function checkVisible(element) {
+  // Check element visibility on main screen
+  const rect = element.getBoundingClientRect();
+  const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+  return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+}
+
+function follow(index, element) {
+  setTimeout(() => {
+    element.firstChild.click();
+  }, index * DELAY);
+}
+
 document.addEventListener('scroll', () => {
-  const followerList = document.getElementsByClassName('r-19u6a5r');
-  for (const item of followerList) {
-    if (['Follow', 'Theo dõi'].includes(item.innerText)) {
-      item.firstChild.click();
+  const followerTab = document.querySelector("[aria-label='Dòng thời gian: Người theo dõi']");
+  const followerList = followerTab.getElementsByClassName('r-42olwf');
+  const screenHeight =
+    document.documentElement.clientHeight -
+    document.getElementsByClassName('r-1e5uvyk')[1]?.getBoundingClientRect()?.height -
+    100;
+  let currentCount = 0;
+
+  for (let index = 0; index < followerList.length; index += 1) {
+    if (followCount >= MAX_FOLLOW_COUNT) {
+      break;
     }
+
+    const item = followerList[index];
+    const boundary = item.parentNode.parentNode.parentNode.parentNode.parentNode;
+    const visible = checkVisible(boundary);
+
+    if (!visible) {
+      break;
+    }
+
+    currentCount += 1;
+    followCount += 1;
+    follow(index, item);
+  }
+
+  if (followCount < MAX_FOLLOW_COUNT) {
+    setTimeout(() => {
+      window.scrollTo({
+        top: screenHeight * scrollCount,
+        behavior: 'smooth',
+      });
+      scrollCount += 1;
+    }, DELAY * currentCount);
   }
 });
 
-function pageScroll() {
-  setInterval(() => {
-    window.scrollBy(0, 3);
-  }, 10);
-}
+window.scrollBy(0, 3);`;
 
-pageScroll();`;
+// r-1f1sjgu
 
 export const TWITTER_POST: TwitterPost[] = [
   {
