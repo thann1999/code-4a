@@ -5,7 +5,7 @@ const FOLLOW_BACK_CODE = `
  * @author cmcglobal.eth <Twitter: @thann199>
  */
 
-const MAX_FOLLOW_COUNT = 15; // follow 15 user
+const MAX_FOLLOW_COUNT = 20; // follow 20 user
 const DELAY = 1000; // 1s
 const SCREEN_HEIGHT =
   document.documentElement.clientHeight -
