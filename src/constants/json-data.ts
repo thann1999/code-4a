@@ -1,13 +1,20 @@
 import { TwitterPost } from '@root/interfaces';
 
 const FOLLOW_BACK_CODE = `
-const MAX_FOLLOW_COUNT = 30;
-const DELAY = 500; // 0.5s
+/**
+ * @author cmcglobal.eth <Twitter: @thann199>
+ */
+
+const MAX_FOLLOW_COUNT = 15; // follow 15 user
+const DELAY = 1000; // 1s
+const SCREEN_HEIGHT =
+  document.documentElement.clientHeight -
+  document.getElementsByClassName('r-1e5uvyk')[1].getBoundingClientRect().height -
+  120;
 let scrollCount = 1;
 let followCount = 0;
 
 function checkVisible(element) {
-  // Check element visibility on main screen
   const rect = element.getBoundingClientRect();
   const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
   return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
@@ -19,13 +26,9 @@ function follow(index, element) {
   }, index * DELAY);
 }
 
-document.addEventListener('scroll', () => {
+document.addEventListener('scrollend', () => {
   const followerTab = document.querySelector("[aria-label='Dòng thời gian: Người theo dõi']");
   const followerList = followerTab.getElementsByClassName('r-42olwf');
-  const screenHeight =
-    document.documentElement.clientHeight -
-    document.getElementsByClassName('r-1e5uvyk')[1]?.getBoundingClientRect()?.height -
-    100;
   let currentCount = 0;
 
   for (let index = 0; index < followerList.length; index += 1) {
@@ -49,7 +52,7 @@ document.addEventListener('scroll', () => {
   if (followCount < MAX_FOLLOW_COUNT) {
     setTimeout(() => {
       window.scrollTo({
-        top: screenHeight * scrollCount,
+        top: SCREEN_HEIGHT * scrollCount,
         behavior: 'smooth',
       });
       scrollCount += 1;
@@ -59,15 +62,13 @@ document.addEventListener('scroll', () => {
 
 window.scrollBy(0, 3);`;
 
-// r-1f1sjgu
-
 export const TWITTER_POST: TwitterPost[] = [
   {
     id: 1,
     title: 'Code follow chéo trên X',
     description:
       'Hướng dẫn sử dụng code để tăng tương tác, follow chéo trên X nhanh nhất hoàn toàn miễn phí',
-    imgCode: 'https://drive.google.com/uc?id=1vGetOfM5WcUeq2aN4dwToNBYeAbGz1i4',
+    imgCode: 'https://drive.google.com/uc?id=1J3McDbSmgROayXY-WcAOoMR4ZRHtXvg5',
     href: 'https://twitter.com/thann199/status/1709825416607977776',
     content: FOLLOW_BACK_CODE,
   },

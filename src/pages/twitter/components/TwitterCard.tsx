@@ -12,7 +12,7 @@ export default function TwitterCard({ data }: TwitterCardProps) {
       className="bg-bg-light dark:bg-bg-dark-1 shadow-md border border-gray-200 rounded-lg max-w-md 
    dark:border-gray-700"
     >
-      <div className="p-5 h-[500px] relative">
+      <div className="p-5 h-[32.5rem] relative">
         <Typography className="text-xl font-bold">{data.title}</Typography>
         <Typography className="mt-2">{data.description}</Typography>
         <div className="text-right">
