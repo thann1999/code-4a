@@ -1,5 +1,7 @@
 import { Icon } from '@iconify/react';
 import { Button, Typography } from 'antd';
+import clsx from 'clsx';
+import { Highlight, themes } from 'prism-react-renderer';
 
 import { TwitterCardProps } from '@root/interfaces';
 
@@ -12,10 +14,10 @@ export default function TwitterCard({ data }: TwitterCardProps) {
       className="bg-bg-light dark:bg-bg-dark-1 shadow-md border border-gray-200 rounded-lg max-w-md 
    dark:border-gray-700"
     >
-      <div className="p-5 h-[32.5rem] relative">
+      <div className="p-5 h-[34rem] relative">
         <Typography className="text-xl font-bold">{data.title}</Typography>
         <Typography className="mt-2">{data.description}</Typography>
-        <div className="text-right">
+        <div className="text-right mb-2">
           <Typography.Text
             className="text-xl"
             copyable={{
@@ -24,7 +26,20 @@ export default function TwitterCard({ data }: TwitterCardProps) {
             }}
           />
         </div>
-        <img className="rounded-lg w-full mt-3" src={data.imgCode} alt={data.title} />
+        <Highlight language="js" theme={themes.dracula} code={data.content}>
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={clsx(className, 'h-80 rounded-lg text-sm')} style={style}>
+              {tokens.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </pre>
+          )}
+        </Highlight>
+
         <Button
           type="primary"
           className="flex items-center absolute left-5 bottom-5"

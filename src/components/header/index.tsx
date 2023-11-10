@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { MenuUnfoldOutlined } from '@ant-design/icons';
 import { Icon } from '@iconify/react';
-import { Layout, Popover, Space, Typography, Grid, Button, Tooltip } from 'antd';
+import { Layout, Popover, Space, Typography, Grid, Button, Tooltip, Dropdown } from 'antd';
 import clsx from 'clsx';
 import { useMatches, useNavigate } from 'react-router-dom';
 
@@ -34,16 +34,23 @@ export default function HeaderComponent() {
     window.open(TWITTER_AUTHOR_LINK, '_blank');
   };
 
+  const handleChange = ({ key }: any) => {
+    switch (key) {
+      default:
+        return navigate(getTwitterPath());
+    }
+  };
+
   // eslint-disable-next-line react/no-unstable-nested-components
   const MenuHeader = () => (
     <Space direction="horizontal" size="small">
       {HEADER_MENU.map((item) => (
         <Typography
           key={item.key}
-          onClick={() => handleNavigate(item.href, item.isDisabled)}
+          onClick={() => handleNavigate(item.href, item.disabled)}
           className={clsx('font-semibold text-base ml-10', {
             author: activeKey === item.key,
-            'cursor-pointer': !item.isDisabled,
+            'cursor-pointer': !item.disabled,
           })}
         >
           {item.label}
@@ -53,8 +60,8 @@ export default function HeaderComponent() {
   );
 
   return (
-    <Header className="flex items-center justify-between xl:px-32 bg-transparent h-20">
-      <div className="flex">
+    <Header className="flex items-center justify-between xl:px-32 bg-transparent h-14">
+      <div className="flex items-center">
         <img
           src={logo}
           alt="logo"
@@ -65,7 +72,16 @@ export default function HeaderComponent() {
         {md ? (
           <MenuHeader />
         ) : (
-          <Button type="primary" className="ml-4" icon={<MenuUnfoldOutlined />} />
+          <Dropdown
+            trigger={['click']}
+            menu={{
+              items: HEADER_MENU,
+              defaultSelectedKeys: [activeKey],
+              onClick: handleChange,
+            }}
+          >
+            <Button type="primary" className="ml-4" icon={<MenuUnfoldOutlined />} />
+          </Dropdown>
         )}
       </div>
 

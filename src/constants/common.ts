@@ -94,7 +94,7 @@ export const HEADER_MENU: HeaderMenuItem[] = [
     label: 'Starknet (Coming soon)',
     href: '',
     key: RouteKey.STARKNET,
-    isDisabled: true,
+    disabled: true,
   },
   // {
   //   label: 'zkSync (Coming soon)',
